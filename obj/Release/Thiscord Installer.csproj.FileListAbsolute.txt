@@ -1,0 +1,14 @@
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\bin\Release\Thiscord Installer.exe.config
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\bin\Release\Thiscord Installer.exe
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\bin\Release\Thiscord Installer.pdb
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\bin\Release\ComponentFactory.Krypton.Toolkit.dll
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\bin\Release\ComponentFactory.Krypton.Toolkit.pdb
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\obj\Release\Thiscord Installer.csproj.AssemblyReference.cache
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\obj\Release\Thiscord Installer.csproj.SuggestedBindingRedirects.cache
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\obj\Release\Thiscord_Installer.sz.resources
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\obj\Release\Thiscord_Installer.Properties.Resources.resources
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\obj\Release\Thiscord Installer.csproj.GenerateResource.cache
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\obj\Release\Thiscord Installer.csproj.CoreCompileInputs.cache
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\obj\Release\Thiscord Installer.csproj.CopyComplete
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\obj\Release\Thiscord Installer.exe
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\obj\Release\Thiscord Installer.pdb
