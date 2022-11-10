@@ -149,7 +149,7 @@
             this.UninstallTextbox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UninstallTextbox.ForeColor = System.Drawing.Color.Gainsboro;
             this.UninstallTextbox.HideSelection = false;
-            this.UninstallTextbox.Location = new System.Drawing.Point(146, 408);
+            this.UninstallTextbox.Location = new System.Drawing.Point(146, 413);
             this.UninstallTextbox.Multiline = true;
             this.UninstallTextbox.Name = "UninstallTextbox";
             this.UninstallTextbox.ReadOnly = true;

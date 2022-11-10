@@ -32,10 +32,33 @@ namespace Thiscord_Installer
 
         private void InstallButton_Click(object sender, EventArgs e)
         {
+            string dir;
+            dir = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\";
+            if (!Directory.Exists(dir))
+            {
+                MessageBox.Show("Discord doesnt seem to be installed\rInstall it at https://discord.com/download");
+                return;
+            }
             TermsTextBox.Hide();
             panel2.Hide();
+            dir = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Thiscord\\ThisCord-master";
+            if (Directory.Exists(dir))
+            {
+                LegalTextbox.Text = "Uninstalling...";
+                dir = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Thiscord";
+                if (Directory.Exists(dir))
+                {
+                    Directory.Delete(dir, true);
+                }
+                UninstallTextbox.Text = "Removed Folder";
+                dir = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update_Discord.exe";
+                if (File.Exists(dir))
+                {
+                    File.Delete($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update.exe");
+                    File.Move($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update_Discord.exe", $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update.exe");
+                }
+            }
             LegalTextbox.Text = "Starting install";
-            string dir;
             using (var client = new WebClient())
             {
                 try
@@ -72,7 +95,7 @@ namespace Thiscord_Installer
                 ZipFile.ExtractToDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Thiscord\\thiscord.zip", $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Thiscord");
                 string sourceFile = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Thiscord\\ThisCord-master\\src\\Update.exe";
                 string destinationFile = $"{ Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update.exe";
-                System.IO.File.Move($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update.exe", $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update_Discord.exe");
+                File.Move($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update.exe", $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update_Discord.exe");
                 File.Copy(sourceFile, destinationFile, true);
             }
             catch (Exception error)
@@ -110,7 +133,7 @@ namespace Thiscord_Installer
             if (File.Exists(dir))
             {
                 File.Delete($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update.exe");
-                System.IO.File.Move($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update_Discord.exe", $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update.exe");
+                File.Move($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update_Discord.exe", $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update.exe");
             }
             UninstallTextbox.Text = "Reset Discord Appdata Successfully";
             UninstallButton.Text = "Not Installed";
