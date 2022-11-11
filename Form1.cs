@@ -36,7 +36,7 @@ namespace Thiscord_Installer
             dir = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\";
             if (!Directory.Exists(dir))
             {
-                MessageBox.Show("Discord doesnt seem to be installed\rInstall it at https://discord.com/download");
+                MessageBox.Show("Discord doesnt seem to be installed\r\nInstall it at https://discord.com/download");
                 return;
             }
             TermsTextBox.Hide();
