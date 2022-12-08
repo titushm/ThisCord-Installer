@@ -66,7 +66,7 @@
             this.TermsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TermsTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TermsTextBox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TermsTextBox.ForeColor = System.Drawing.Color.White;
+            this.TermsTextBox.ForeColor = System.Drawing.Color.Gray;
             this.TermsTextBox.HideSelection = false;
             this.TermsTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TermsTextBox.Location = new System.Drawing.Point(17, 122);
