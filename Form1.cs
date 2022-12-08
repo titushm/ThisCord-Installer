@@ -10,6 +10,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Thiscord_Installer
 {
@@ -34,6 +35,10 @@ namespace Thiscord_Installer
 
         private void InstallButton_Click(object sender, EventArgs e)
         {
+            foreach (var process in Process.GetProcessesByName("discord"))
+            {
+                process.Kill();
+            }
             if (!Directory.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\"))
             {
                 MessageBox.Show("Discord doesnt seem to be installed\r\nInstall it at https://discord.com/download");
@@ -114,6 +119,10 @@ namespace Thiscord_Installer
 
         private void UninstallButton_click(object sender, EventArgs e)
         {
+            foreach (var process in Process.GetProcessesByName("discord"))
+            {
+                process.Kill();
+            }
             UninstallTextbox.Text = "Uninstalling...";
             if (Directory.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Thiscord"))
             {
