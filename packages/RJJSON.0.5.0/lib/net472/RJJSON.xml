@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RJJSON</name>
+    </assembly>
+    <members>
+        <member name="T:RJJSON.JSON">
+            <summary>
+            Class <c>JSON</c> A mostly static class which helps yopu minippulate <c>JSONTypes</c>
+            </summary>
+        </member>
+        <member name="M:RJJSON.JSON.StringToObject(System.String)">
+            <summary>
+            Method <c>StringToObject</c> converts a <c>string</c> representation of JSON to an object representation namely <c>JSONTypes</c> the sort used in C# code the oposit method is <code>JSON.ObjectToString()</code>
+            </summary>
+            <param name="Json">A string representation of JSON</param>
+            <returns>A JSONTypes object with the same structure and values as the string representation</returns>
+        </member>
+        <member name="M:RJJSON.JSON.ObjectToString(RJJSON.JSONType)">
+            <summary>
+            Method <c>StringToObject</c> converts a <c>JSONTypes</c> representation of JSON to a <c>string</c> representation the type you would see in a file the oposit method is <code>JSON.StringToObject()</code>
+            </summary>
+            <param name="Json"></param>
+            <returns>String Representation Of JSONTypes Object</returns>
+        </member>
+        <member name="M:RJJSON.JSON.FormatJson(System.String)">
+            <summary>
+            formats a Json string
+            </summary>
+            <param name="JSONStr">the json to be formated</param>
+            <returns>a formated Json string</returns>
+        </member>
+        <member name="M:RJJSON.JSON.FormatJson(RJJSON.JSONType)">
+            <summary>
+            formats a Json string
+            </summary>
+            <param name="JSONStr">the json to be formated</param>
+            <returns>a formated Json string</returns>
+        </member>
+        <member name="M:RJJSON.JSON.FillDefault(RJJSON.JSONType,RJJSON.JSONType)">
+            <summary>
+            fills the missing values from a Json object with the default values provided
+            </summary>
+            <param name="Default">your default values</param>
+            <param name="Custom">the incomplete values</param>
+            <returns></returns>
+        </member>
+        <member name="T:RJJSON.JSON.Types">
+            <summary>
+            All The Types JSON supports
+            (it may appear that JSON supports Int as it has this option
+            </summary>
+        </member>
+        <member name="F:RJJSON.JSON.Types.NULL">
+            <summary>
+            represents <c>null</c>
+            </summary>
+        </member>
+        <member name="F:RJJSON.JSON.Types.DICT">
+            <summary>
+            represents <c>Dictionary&lt;string, JSONTypes&gt;</c>
+            </summary>
+        </member>
+        <member name="F:RJJSON.JSON.Types.LIST">
+            <summary>
+            represents <c>List&lt;JSONTypes&gt;</c>
+            </summary>
+        </member>
+        <member name="F:RJJSON.JSON.Types.BOOL">
+            <summary>
+            represents <c>bool</c>
+            </summary>
+        </member>
+        <member name="F:RJJSON.JSON.Types.STRING">
+            <summary>
+            represents <c>string</c>
+            </summary>
+        </member>
+        <member name="F:RJJSON.JSON.Types.FLOAT">
+            <summary>
+            represents <c>double</c>
+            </summary>
+        </member>
+        <member name="M:RJJSON.JSON.JSONTypesToTypes(RJJSON.JSON.Types)">
+            <summary>
+            converts <c>JSON.Types</c> to <c>Type</c>
+            </summary>
+            <param name="type">the type to convert to a <c>Type</c></param>
+            <returns>the <c>Type</c> equivelent of <c>Json.Types</c> value passed in</returns>
+        </member>
+        <member name="T:RJJSON.JSONType">
+            <summary>
+            Class <c>JSONTypes</c> wrapper for all JSON types.
+            </summary>
+        </member>
+        <member name="M:RJJSON.JSONType.#ctor(RJJSON.JSON.Types)">
+            <summary>
+            constructor <c>JSONType</c>
+            <param name="type">the type the <c>JSONType</c> instance wraps</param>
+            </summary>
+        </member>
+        <member name="P:RJJSON.JSONType.Type">
+            <summary>
+            field <c>Type</c>
+            <returns>The JSON type as a <code>JSON.Types</code></returns>
+            </summary>
+        </member>
+        <member name="P:RJJSON.JSONType.DictData">
+            <summary>
+            field <c>DictData</c> Get the Data that the instance holds if it has a type of <code>JSON.Types.DICT</code>
+            </summary>
+        </member>
+        <member name="P:RJJSON.JSONType.ListData">
+            <summary>
+            field <c>ListData</c> Get the Data that the instance holds if it has a type of <code>JSON.Types.LIST</code>
+            </summary>
+        </member>
+        <member name="P:RJJSON.JSONType.BoolData">
+            <summary>
+            field <c>BoolData</c> Get the Data that the instance holds if it has a type of <code>JSON.Types.BOOL</code>
+            </summary>
+        </member>
+        <member name="P:RJJSON.JSONType.StringData">
+            <summary>
+            field <c>StringData</c> Get the Data that the instance holds if it has a type of <code>JSON.Types.STRING</code>
+            </summary>
+        </member>
+        <member name="P:RJJSON.JSONType.FloatData">
+            <summary>
+            field <c>FloatData</c> Get the Data that the instance holds if it has a type of <code>JSON.Types.FLOAT</code>
+            </summary>
+        </member>
+        <member name="M:RJJSON.JSONType.ToString">
+            <summary>
+            method <c>ToString</c> alias for <code>JSON.ObjectToString(this)</code> or in other words the <code>JSON.ObjectToString</code> of itsself
+            </summary>
+            <returns>JSON.ObjectToString(this)</returns>
+        </member>
+        <member name="P:RJJSON.JSONType.Item(System.Int32)">
+            <summary>
+            Indexer Root Only works if <c>type</c> is <code>JSON.Types.DICT</code>
+            </summary>
+            <param name="index">the value to index to</param>
+            <returns></returns>
+        </member>
+        <member name="P:RJJSON.JSONType.Item(System.String)">
+            <summary>
+            Indexer Root Only works if <c>type</c> is <code>JSON.Types.LIST</code>
+            </summary>
+            <param name="index">the value to index to</param>
+            <returns></returns>
+        </member>
+        <member name="M:RJJSON.JSONType.GetEnumerator">
+            <summary>
+            GetEnumerator Root. Only works if <c>type</c> is <code>JSON.Types.DICT</code> and <code>JSON.Types.LIST</code>
+            </summary>
+            <returns>IEnumerator object</returns>
+        </member>
+        <member name="T:RJJSON.InvalidTypeException">
+            <summary>
+            thrown when there is an invalid type passed
+            </summary>
+        </member>
+        <member name="M:RJJSON.InvalidTypeException.#ctor">
+            <summary>
+            initiliser for <c>InvalidTypeException</c>
+            </summary>
+        </member>
+        <member name="M:RJJSON.InvalidTypeException.#ctor(System.String)">
+            <summary>
+            initiliser for <c>InvalidTypeException</c>
+            </summary>
+        </member>
+        <member name="M:RJJSON.InvalidTypeException.#ctor(System.String,System.Exception)">
+            <summary>
+            initiliser for <c>InvalidTypeException</c>
+            </summary>
+        </member>
+        <member name="M:RJJSON.InvalidTypeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            initiliser for <c>InvalidTypeException</c>
+            </summary>
+        </member>
+    </members>
+</doc>

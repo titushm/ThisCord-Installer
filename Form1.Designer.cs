@@ -34,9 +34,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.InstallButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.LegalTextbox = new System.Windows.Forms.TextBox();
             this.UninstallButton = new System.Windows.Forms.Button();
             this.UninstallTextbox = new System.Windows.Forms.TextBox();
+            this.LegalTextbox = new System.Windows.Forms.TextBox();
+            this.VersionTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ThiscordBanner)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +67,7 @@
             this.TermsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TermsTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TermsTextBox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TermsTextBox.ForeColor = System.Drawing.Color.Gray;
+            this.TermsTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(101)))), ((int)(((byte)(242)))));
             this.TermsTextBox.HideSelection = false;
             this.TermsTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TermsTextBox.Location = new System.Drawing.Point(17, 122);
@@ -91,7 +92,7 @@
             this.InstallButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.InstallButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InstallButton.ForeColor = System.Drawing.Color.White;
-            this.InstallButton.Location = new System.Drawing.Point(348, 408);
+            this.InstallButton.Location = new System.Drawing.Point(644, 398);
             this.InstallButton.Name = "InstallButton";
             this.InstallButton.Size = new System.Drawing.Size(128, 41);
             this.InstallButton.TabIndex = 5;
@@ -109,29 +110,13 @@
             this.panel2.Size = new System.Drawing.Size(752, 240);
             this.panel2.TabIndex = 6;
             // 
-            // LegalTextbox
-            // 
-            this.LegalTextbox.BackColor = System.Drawing.Color.Black;
-            this.LegalTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.LegalTextbox.Enabled = false;
-            this.LegalTextbox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LegalTextbox.ForeColor = System.Drawing.Color.Gainsboro;
-            this.LegalTextbox.HideSelection = false;
-            this.LegalTextbox.Location = new System.Drawing.Point(482, 408);
-            this.LegalTextbox.Multiline = true;
-            this.LegalTextbox.Name = "LegalTextbox";
-            this.LegalTextbox.ReadOnly = true;
-            this.LegalTextbox.Size = new System.Drawing.Size(167, 36);
-            this.LegalTextbox.TabIndex = 7;
-            this.LegalTextbox.Text = "By clicking \"Install Thiscord\" you agree to the terms set out above";
-            // 
             // UninstallButton
             // 
             this.UninstallButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.UninstallButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UninstallButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UninstallButton.ForeColor = System.Drawing.Color.White;
-            this.UninstallButton.Location = new System.Drawing.Point(12, 408);
+            this.UninstallButton.Location = new System.Drawing.Point(12, 398);
             this.UninstallButton.Name = "UninstallButton";
             this.UninstallButton.Size = new System.Drawing.Size(128, 41);
             this.UninstallButton.TabIndex = 8;
@@ -156,6 +141,38 @@
             this.UninstallTextbox.Size = new System.Drawing.Size(167, 36);
             this.UninstallTextbox.TabIndex = 9;
             // 
+            // LegalTextbox
+            // 
+            this.LegalTextbox.BackColor = System.Drawing.Color.Black;
+            this.LegalTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LegalTextbox.Enabled = false;
+            this.LegalTextbox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LegalTextbox.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LegalTextbox.HideSelection = false;
+            this.LegalTextbox.Location = new System.Drawing.Point(471, 398);
+            this.LegalTextbox.Multiline = true;
+            this.LegalTextbox.Name = "LegalTextbox";
+            this.LegalTextbox.ReadOnly = true;
+            this.LegalTextbox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.LegalTextbox.Size = new System.Drawing.Size(167, 36);
+            this.LegalTextbox.TabIndex = 7;
+            this.LegalTextbox.Text = "By clicking \"Install Thiscord\" you agree to the terms set out above";
+            this.LegalTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // VersionTextBox
+            // 
+            this.VersionTextBox.BackColor = System.Drawing.Color.Black;
+            this.VersionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VersionTextBox.Enabled = false;
+            this.VersionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VersionTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(101)))), ((int)(((byte)(242)))));
+            this.VersionTextBox.Location = new System.Drawing.Point(720, 443);
+            this.VersionTextBox.Name = "VersionTextBox";
+            this.VersionTextBox.ReadOnly = true;
+            this.VersionTextBox.Size = new System.Drawing.Size(52, 15);
+            this.VersionTextBox.TabIndex = 10;
+            this.VersionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,6 +180,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.InfoText;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.VersionTextBox);
             this.Controls.Add(this.UninstallTextbox);
             this.Controls.Add(this.UninstallButton);
             this.Controls.Add(this.LegalTextbox);
@@ -193,9 +211,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button InstallButton;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox LegalTextbox;
         private System.Windows.Forms.Button UninstallButton;
         private System.Windows.Forms.TextBox UninstallTextbox;
+        private System.Windows.Forms.TextBox LegalTextbox;
+        private System.Windows.Forms.TextBox VersionTextBox;
     }
 }
 

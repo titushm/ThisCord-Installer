@@ -12,3 +12,5 @@ C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\obj\Release\Thiscord Inst
 C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\obj\Release\Thiscord Installer.exe
 C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\obj\Release\Thiscord Installer.pdb
 C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\obj\Release\Thiscord_Installer.MainForm.resources
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\bin\Release\RJJSON.dll
+C:\Users\titus_ksx2kzk\source\repos\Thiscord Installer\bin\Release\RJJSON.xml

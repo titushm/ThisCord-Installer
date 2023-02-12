@@ -1,27 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
+using RJJSON;
 
 namespace Thiscord_Installer
 {
     public partial class MainForm : Form
     {
+        Version InstalledVersion = new Version("0.0.0");
+        Version LatestVersion = new Version("0.0.0");
         public MainForm()
         {
             InitializeComponent();
-            WebClient client = new WebClient();
-            TermsTextBox.Text = client.DownloadString("https://raw.githubusercontent.com/RJ-Infinity/ThisCord/master/terms.txt");
         }
 
         private void InstallButton_MouseEnter(object sender, EventArgs e)
@@ -105,17 +100,38 @@ namespace Thiscord_Installer
                 LegalTextbox.Text = $"Error : copied to clipboard";
                 return;
             }
-            LegalTextbox.Text = "Extracted and Copied Successfully";
-
-            InstallButton.Text = "Installed successfully";
+            LegalTextbox.Text = "Extracted and Copied";
+            InstallButton.Text = "Installed";
             InstallButton.Enabled = false;
+            VersionTextBox.Text = LatestVersion.ToString();
         }
 
         private void sz_Load(object sender, EventArgs e)
         {
-            if (Directory.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Thiscord\\ThisCord-master"))
-            {
-                InstallButton.Text = "Reinstall Thiscord";
+            WebClient Client = new WebClient();
+            string Terms = Client.DownloadString("https://raw.githubusercontent.com/RJ-Infinity/ThisCord/master/terms.txt");
+            LatestVersion = new Version(JSON.StringToObject(Client.DownloadString("https://raw.githubusercontent.com/RJ-Infinity/ThisCord/master/version.json"))["version"].StringData);
+            bool updateRequired = JSON.StringToObject(Client.DownloadString("https://raw.githubusercontent.com/RJ-Infinity/ThisCord/master/version.json"))["required"].BoolData;
+            TermsTextBox.Text = Terms;
+            bool thiscordInstalled = Directory.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Thiscord\\ThisCord-master");
+            if(thiscordInstalled) {
+                InstalledVersion = new Version(JSON.StringToObject(File.ReadAllText($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Thiscord\\ThisCord-master\\version.json"))["version"].StringData);
+                VersionTextBox.Text = InstalledVersion.ToString();
+                if(InstalledVersion < LatestVersion)
+                {
+                    if (updateRequired)
+                    {
+                        InstallButton.Text = $"Required Update Available ({InstalledVersion} >> {LatestVersion})";
+                        MessageBox.Show("A required update has been fetched, click OK to install", "Update");
+                        InstallButton.PerformClick();
+                    } else {
+                        InstallButton.Text = $"Update Available ({InstalledVersion} >> {LatestVersion})";
+                    }
+                }
+                else
+                {
+                    InstallButton.Text = "Re-install Thiscord";
+                }
             }
         }
 
@@ -137,7 +153,7 @@ namespace Thiscord_Installer
                 File.Delete($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update.exe");
                 File.Move($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update_Discord.exe", $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Discord\\Update.exe");
             }
-            UninstallTextbox.Text = "Reset Discord Appdata Successfully";
+            UninstallTextbox.Text = "Reset Discord Appdata";
             UninstallButton.Text = "Not Installed";
             UninstallButton.Enabled = false;
         }
