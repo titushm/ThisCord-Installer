@@ -29,7 +29,15 @@ BOOL FileExists(LPCTSTR szPath) {
 	return (dwAttrib != INVALID_FILE_ATTRIBUTES && !(dwAttrib & FILE_ATTRIBUTE_DIRECTORY));
 }
 
-#define PYTHON3_DLL_PATH "\\py\\python3.dll"
+// this could be python3.dll however due to a bug in python the forwarded calls in
+// python3.dll first check the path for python 310.dll which means if you happen to
+// have python 3.10 installed in your path you get that dll not the one we just
+// installed meaning none of the packages are installed meaning it all crashes. (this
+// is fixed in newer versions of python however calling directly not using the
+// forwarded python3.dll calls should always be more stable anyway (not to mention
+// python310.dll actualy has more functions that are not exposed in python3.dll
+// (although this shouldnt matter as we dont use any of them)))
+#define PYTHON3_DLL_PATH "\\py\\python310.dll"
 #define MAIN_PATH "\\ThisCord-master\\src\\main.py"
 #define EXTRA_ARGS 1
 
@@ -50,7 +58,6 @@ int main(int argc, char** argv) {
 	char* exePath = malloc(sizeof exePath[0] * MAX_PATH);
 
 	if (GetModuleFileName(NULL,exePath,MAX_PATH) == MAX_PATH) {return maxPathError();}
-	printf("exePath: %s\n",exePath);
 
 	char* lastSlash = strrchr(exePath, '\\');
 	if (lastSlash == NULL) {
@@ -64,8 +71,6 @@ int main(int argc, char** argv) {
 	}
 	*lastSlash = 0; // change the last slash for the end of the string
 
-	printf("exePathDir: %s\n",exePath);
-
 	if (strlen(exePath)>MAX_PATH - sizeof(PYTHON3_DLL_PATH)) {return maxPathError();}
 
 	size_t python3dllPathSize = sizeof exePath[0] * (strlen(exePath) + sizeof(PYTHON3_DLL_PATH));
@@ -73,8 +78,6 @@ int main(int argc, char** argv) {
 
 	strcpy_s(python3dllPath, python3dllPathSize, exePath);
 	strcat_s(python3dllPath, python3dllPathSize, PYTHON3_DLL_PATH);
-
-	printf("python3dllPath: %s\n",python3dllPath);
 
 	if (!FileExists(python3dllPath)) {
 		if (MessageBox(
