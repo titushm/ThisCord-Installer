@@ -1,4 +1,5 @@
 // clang .\main.c -o ThisCord.exe -Wall -Wextra "-Wl,/SUBSYSTEM:WINDOWS"
+// rh -open .\ThisCord.exe -save .\ThisCord.exe -action addskip -res ..\ThiscordIcon.ico -mask "ICONGROUP,MAINICON,"
 #pragma comment(lib, "user32.lib")
 #include <windows.h>
 #include <stdio.h>
