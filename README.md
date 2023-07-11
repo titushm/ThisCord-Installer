@@ -3,7 +3,7 @@ Installer for [Thiscord](https://github.com/RJ-Infinity/ThisCord)
 
 # Quick Start
 
-Most of this is a C# application which can be built with visual studio.
+Most of this is a C# application which can be built with [Visual Studio](https://visualstudio.microsoft.com/).
 
 Inside ThisCordLauncher is a small C executable that is downloaded by the launcher to start ThisCord correctly.
 
