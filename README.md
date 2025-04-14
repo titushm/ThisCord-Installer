@@ -1,3 +1,6 @@
+# ⚠️ THISCORD HAS BEEN REPLACED BY [DISCL](https://github.com/titushm/discl) 
+
+
 # ThisCord-Installer
 Installer for [Thiscord](https://github.com/RJ-Infinity/ThisCord)
 
